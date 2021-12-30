@@ -14,14 +14,14 @@ The app will keep track of everything entered each day and display graphs of use
 
 #### Must-have -
 
-   1. Food diary/journal/log page **Until Sunday morning**
+   1. Navbar **45M**
+   2. Food diary/journal/log page **Until Sunday morning**
      a. Text input (meal) **20M**
      b. Number input (amount) **30M**
      c. Make and parse API requests **2H**
      d. Present options from results **20M**
      e. handle option click **2H**
-   2. Homepage with title **1H**
-   3. Navbar **45M**
+   3. Homepage with title **1H**
    4. Profile page **1H**
      a. Option to enter height, weight, age **20M**
      b. Option to choose goal (cut fat, gain muscle...) **20M**
