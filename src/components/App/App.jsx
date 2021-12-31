@@ -1,6 +1,7 @@
 // External imports
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import foodApi from "../../api/foodApi";
 
 // Components
 import FoodLog from "../FoodLog/FoodLog";
@@ -12,6 +13,15 @@ import Profile from "../Profile/Profile";
 import "./App.css";
 
 function App() {
+  foodApi
+    .get("foods/search", {
+      params: {
+        query: "apple",
+        pageSize: 2,
+      },
+    })
+    .then(({ data }) => console.log(data));
+
   return (
     <div className="App">
       <Router>
