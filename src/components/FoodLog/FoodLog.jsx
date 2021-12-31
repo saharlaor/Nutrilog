@@ -7,6 +7,7 @@ function FoodLog() {
     <div className="FoodLog">
       <h2>Food Log</h2>
       <Input title="food item" type="text" />
+      <Input title="amount" type="number" />
     </div>
   );
 }
