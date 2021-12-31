@@ -17,9 +17,9 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route exact path="/" component={Overview} />
-          <Route exact path="/food" component={FoodLog} />
-          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/" element={<Overview />} />
+          <Route exact path="/food" element={<FoodLog />} />
+          <Route exact path="/profile" element={<Profile />} />
         </Routes>
       </Router>
     </div>
