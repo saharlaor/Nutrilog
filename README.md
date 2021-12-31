@@ -51,8 +51,8 @@ APIs considered -
 
 The first one was chosen after considerations for its ease of use and inclusive and suitability with the data Nutrilog is searching for.
 
-[API Call Data](src/assets/img/api_call.png)
-[API Call Single Item](src/assets/img/api_call_item.png)
+![API Call Data](src/assets/img/api_call.png)
+![API Call Single Item](src/assets/img/api_call_item.png)
 
 
 ## Design Diagram
