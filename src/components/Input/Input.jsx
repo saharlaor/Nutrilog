@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Input.css";
 
-function Input({ title, type }) {
-  const [value, setValue] = useState(type === "number" ? 0 : "");
-
+function Input({ title, type, value, changeHandler }) {
   const handleChange = (e) => {
-    setValue(e.target.value);
+    changeHandler(e.target.value);
   };
 
   return (
