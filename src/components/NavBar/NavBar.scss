@@ -1,7 +1,8 @@
 .NavBar {
   display: flex;
   justify-content: space-between;
-  margin: 2rem;
+  padding: 0.5rem;
+  padding-top: 2rem;
   & > * {
     height: 60px;
   }

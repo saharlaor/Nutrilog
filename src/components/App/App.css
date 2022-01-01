@@ -1,4 +1,6 @@
-.app {
-  display: inline-block;
+.App {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
 }
 /*# sourceMappingURL=App.css.map */
