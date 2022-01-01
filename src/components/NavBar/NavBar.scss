@@ -1,4 +1,22 @@
 .NavBar {
   display: flex;
   justify-content: space-between;
+  margin: 2rem;
+  & > * {
+    height: 60px;
+  }
+  & img {
+    height: 100%;
+  }
+  & > li {
+    font-size: 18px;
+  }
+}
+
+.NavBar__items {
+  display: flex;
+  & .ant-menu-title-content {
+    font-size: 18px;
+    vertical-align: text-top;
+  }
 }

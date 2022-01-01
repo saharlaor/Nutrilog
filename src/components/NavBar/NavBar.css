@@ -5,5 +5,29 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin: 2rem;
+}
+
+.NavBar > * {
+  height: 60px;
+}
+
+.NavBar img {
+  height: 100%;
+}
+
+.NavBar > li {
+  font-size: 18px;
+}
+
+.NavBar__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.NavBar__items .ant-menu-title-content {
+  font-size: 18px;
+  vertical-align: text-top;
 }
 /*# sourceMappingURL=NavBar.css.map */
