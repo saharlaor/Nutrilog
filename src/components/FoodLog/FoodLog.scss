@@ -1,3 +1,10 @@
 .FoodLog {
   display: inline-block;
+  width: 100%;
+}
+
+.FoodLog__inputs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }

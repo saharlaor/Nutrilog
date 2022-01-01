@@ -1,4 +1,30 @@
 .Input {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-/*# sourceMappingURL=a.css.map */
+
+.Input label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 32px;
+  padding: 0 0.5rem;
+  color: #eee;
+  background-color: #677;
+  font-weight: 700;
+  border-radius: 0.5rem 0 0 0.5rem;
+  vertical-align: top;
+}
+
+.Input div {
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.Input div.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+/*# sourceMappingURL=Input.css.map */

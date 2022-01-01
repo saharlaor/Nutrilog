@@ -1,3 +1,21 @@
 .Input {
-  display: inline-block;
+  display: flex;
+  label {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    padding: 0 0.5rem;
+    color: #eee;
+    background-color: #677;
+    font-weight: 700;
+    border-radius: 0.5rem 0 0 0.5rem;
+    vertical-align: top;
+  }
+  & div {
+    border-radius: 0 0.5rem 0.5rem 0;
+    &.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+      // Override antd styling specificity
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+  }
 }

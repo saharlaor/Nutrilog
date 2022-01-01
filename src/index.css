@@ -1,4 +1,11 @@
 @import "./styles/normalize.css";
+@import "antd/dist/antd.css";
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;

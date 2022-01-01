@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACP,OAAO,EAAE,YAAY;EACrB,KAAK,EAAE,IAAI;CACZ;;AAED,AAAA,gBAAgB,CAAC;EACf,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;EACf,eAAe,EAAE,YAAY;CAC9B",
+    "sources": [
+        "FoodLog.scss"
+    ],
+    "names": [],
+    "file": "FoodLog.css"
+}
