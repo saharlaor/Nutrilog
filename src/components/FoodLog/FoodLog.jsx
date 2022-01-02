@@ -88,6 +88,14 @@ function FoodLog() {
     }
   };
 
+  const displayNutrients = () => {
+    return Object.entries(nutrients).map((nutrient) => {
+      return (
+        <div>{`${nutrient[0]}: ${nutrient[1].amount} ${nutrient[1].units}`}</div>
+      );
+    });
+  };
+
   return (
     <div className="FoodLog">
       <h2>Food Log</h2>
@@ -96,8 +104,9 @@ function FoodLog() {
           title="food item"
           type="autocomplete"
           value={term}
-          changeHandler={handleFoodChange}
           options={term ? options : []}
+          changeHandler={handleFoodChange}
+          selectHandler={handleFoodSelect}
         />
         <Input
           title="amount"
@@ -106,6 +115,7 @@ function FoodLog() {
           changeHandler={handleAmountChange}
         />
       </div>
+      <div className="nutrient-display">{displayNutrients()}</div>
     </div>
   );
 }
