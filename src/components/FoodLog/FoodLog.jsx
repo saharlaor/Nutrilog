@@ -32,6 +32,7 @@ function FoodLog() {
     carbs: { amount: 0, units: "G" },
     energy: { amount: 0, units: "KCAL" },
   });
+  const [selectedFood, setSelectedFood] = useState("");
   const [term, setTerm] = useState("");
   const [amount, setAmount] = useState(0);
   const [options, setOptions] = useState([]);
@@ -83,6 +84,7 @@ function FoodLog() {
       },
     });
     console.log(`data`, data); // TODO: delete
+    setSelectedFood(data.description);
     const nutrientsObj = parseNutrients(data);
     console.log(`nutrientsObj`, nutrientsObj); // TODO: delete
     setNutrients(nutrientsObj);
@@ -118,7 +120,10 @@ function FoodLog() {
           changeHandler={handleAmountChange}
         />
       </div>
-      <div className="nutrient-display">{displayNutrients()}</div>
+      <div className="nutrient-display">
+        <h3>{selectedFood}</h3>
+        {displayNutrients()}
+      </div>
     </div>
   );
 }
