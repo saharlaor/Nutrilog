@@ -13,15 +13,6 @@ import Profile from "../Profile/Profile";
 import "./App.css";
 
 function App() {
-  foodApi
-    .get("foods/search", {
-      params: {
-        query: "apple",
-        pageSize: 2,
-      },
-    })
-    .then(({ data }) => console.log(data));
-
   return (
     <div className="App">
       <Router>

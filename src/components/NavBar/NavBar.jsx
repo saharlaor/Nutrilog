@@ -17,7 +17,7 @@ function NavBar() {
         </Link>
       </MenuItem>
 
-      <ItemGroup key="menu-items" className="NavBar__items">
+      <ItemGroup>
         <MenuItem key="overview">
           <Link to="/">Overview</Link>
         </MenuItem>

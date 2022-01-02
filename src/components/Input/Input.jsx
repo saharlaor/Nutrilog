@@ -13,7 +13,7 @@ function Input({ title, type, value, changeHandler, options }) {
 
   let component;
   switch (type) {
-    case "text":
+    case "autocomplete":
       component = (
         <AutoComplete
           dropdownMatchSelectWidth={250}
@@ -32,6 +32,7 @@ function Input({ title, type, value, changeHandler, options }) {
       component = <InputNumber value={value} onChange={handleChange} />;
       break;
 
+    case "text":
     default:
       component = <InputText value={value} onChange={handleChange} />;
       break;
