@@ -38,6 +38,27 @@ function FoodLog() {
 
   useEffect(() => {
     const timeoutToken = setTimeout(() => {
+      const getOptions = async () => {
+        console.log(`term`, term); // TODO: delete
+        try {
+          const {
+            data: { foods },
+          } = await foodApi.get("foods/search", {
+            params: {
+              query: term,
+            },
+          });
+          setOptions(
+            foods.map((food) => {
+              return { label: food.description, value: food.fdcId };
+            })
+          );
+        } catch (err) {
+          console.log(err);
+          setOptions(["There seems to be a problem..."]);
+        }
+      };
+
       getOptions();
     }, 500);
     return () => {
@@ -67,31 +88,13 @@ function FoodLog() {
     setNutrients(nutrientsObj);
   };
 
-  const getOptions = async () => {
-    console.log(`term`, term); // TODO: delete
-    try {
-      const {
-        data: { foods },
-      } = await foodApi.get("foods/search", {
-        params: {
-          query: term,
-        },
-      });
-      setOptions(
-        foods.map((food) => {
-          return { label: food.description, value: food.fdcId };
-        })
-      );
-    } catch (err) {
-      console.log(err);
-      setOptions(["There seems to be a problem..."]);
-    }
-  };
-
   const displayNutrients = () => {
     return Object.entries(nutrients).map((nutrient) => {
       return (
-        <div>{`${nutrient[0]}: ${nutrient[1].amount} ${nutrient[1].units}`}</div>
+        <div
+          key={
+            nutrient[0]
+          }>{`${nutrient[0]}: ${nutrient[1].amount} ${nutrient[1].units}`}</div>
       );
     });
   };
