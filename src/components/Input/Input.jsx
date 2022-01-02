@@ -5,10 +5,14 @@ import { AutoComplete, InputNumber, Input as InputText } from "antd";
 // CSS
 import "./Input.css";
 
-function Input({ title, type, value, changeHandler, options }) {
+function Input({ title, type, value, options, changeHandler, selectHandler }) {
   const handleChange = (newVal) => {
     console.log(newVal);
     changeHandler(newVal);
+  };
+
+  const handleSelect = (value) => {
+    selectHandler(value);
   };
 
   let component;
@@ -21,9 +25,9 @@ function Input({ title, type, value, changeHandler, options }) {
             width: 300,
           }}
           value={value}
-          onChange={handleChange}
           options={options}
-          onSelect={(e) => console.log(e)}
+          onChange={handleChange}
+          onSelect={handleSelect}
         />
       );
       break;
