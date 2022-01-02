@@ -10,7 +10,7 @@ const ItemGroup = Menu.ItemGroup;
 
 function NavBar() {
   return (
-    <Menu mode="horizontal" theme="dark" className="NavBar">
+    <Menu mode="horizontal" className="NavBar">
       <MenuItem key="logo">
         <Link to="/">
           <img src={Logo} alt="Nutrilog" />
