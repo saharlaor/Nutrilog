@@ -5,7 +5,15 @@ import { AutoComplete, InputNumber, Input as InputText } from "antd";
 // CSS
 import "./Input.css";
 
-function Input({ title, type, value, options, changeHandler, selectHandler }) {
+function Input({
+  title,
+  type,
+  value,
+  options,
+  autoFocus,
+  changeHandler,
+  selectHandler,
+}) {
   const handleChange = (newVal) => {
     console.log(newVal);
     changeHandler(newVal);
@@ -13,6 +21,7 @@ function Input({ title, type, value, options, changeHandler, selectHandler }) {
 
   const handleSelect = (value) => {
     selectHandler(value);
+    changeHandler("");
   };
 
   let component;
@@ -26,6 +35,7 @@ function Input({ title, type, value, options, changeHandler, selectHandler }) {
           }}
           value={value}
           options={options}
+          autoFocus={autoFocus}
           onChange={handleChange}
           onSelect={handleSelect}
         />
@@ -33,12 +43,24 @@ function Input({ title, type, value, options, changeHandler, selectHandler }) {
       break;
 
     case "number":
-      component = <InputNumber value={value} onChange={handleChange} />;
+      component = (
+        <InputNumber
+          value={value}
+          onChange={handleChange}
+          autoFocus={autoFocus}
+        />
+      );
       break;
 
     case "text":
     default:
-      component = <InputText value={value} onChange={handleChange} />;
+      component = (
+        <InputText
+          value={value}
+          onChange={handleChange}
+          autoFocus={autoFocus}
+        />
+      );
       break;
   }
 

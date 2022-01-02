@@ -110,6 +110,7 @@ function FoodLog() {
           type="autocomplete"
           value={term}
           options={term ? options : []}
+          autoFocus
           changeHandler={handleFoodChange}
           selectHandler={handleFoodSelect}
         />
