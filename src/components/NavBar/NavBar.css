@@ -6,7 +6,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0.5rem;
-  padding-top: 2rem;
+  border-radius: 1rem;
 }
 
 .NavBar > * {
@@ -28,7 +28,8 @@
 }
 
 .NavBar__items .ant-menu-title-content {
-  font-size: 18px;
-  vertical-align: text-top;
+  font-size: 20px;
+  vertical-align: -webkit-baseline-middle;
+  font-weight: 700;
 }
 /*# sourceMappingURL=NavBar.css.map */

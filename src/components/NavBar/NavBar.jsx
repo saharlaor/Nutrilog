@@ -9,21 +9,21 @@ const MenuItem = Menu.Item;
 
 function NavBar() {
   return (
-    <Menu mode="horizontal" className="NavBar">
-      <MenuItem>
+    <Menu mode="horizontal" theme="dark" className="NavBar">
+      <MenuItem key="logo">
         <Link to="/">
           <img src={Logo} alt="Nutrilog" />
         </Link>
       </MenuItem>
 
       <div className="NavBar__items">
-        <MenuItem>
+        <MenuItem key="overview">
           <Link to="/">Overview</Link>
         </MenuItem>
-        <MenuItem>
+        <MenuItem key="food">
           <Link to="/food">Food Log</Link>
         </MenuItem>
-        <MenuItem>
+        <MenuItem key="profile">
           <Link to="/profile">Profile</Link>
         </MenuItem>
       </div>
