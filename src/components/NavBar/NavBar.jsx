@@ -6,6 +6,7 @@ import Logo from "../../assets/img/nutrilog_logo.png";
 import "./NavBar.css";
 
 const MenuItem = Menu.Item;
+const ItemGroup = Menu.ItemGroup;
 
 function NavBar() {
   return (
@@ -16,7 +17,7 @@ function NavBar() {
         </Link>
       </MenuItem>
 
-      <div className="NavBar__items">
+      <ItemGroup key="menu-items" className="NavBar__items">
         <MenuItem key="overview">
           <Link to="/">Overview</Link>
         </MenuItem>
@@ -26,7 +27,7 @@ function NavBar() {
         <MenuItem key="profile">
           <Link to="/profile">Profile</Link>
         </MenuItem>
-      </div>
+      </ItemGroup>
     </Menu>
   );
 }

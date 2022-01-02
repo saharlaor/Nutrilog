@@ -6,7 +6,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0.5rem;
-  border-radius: 1rem;
+  border-radius: 3rem;
 }
 
 .NavBar > * {
@@ -21,13 +21,17 @@
   font-size: 18px;
 }
 
-.NavBar__items {
+.ant-menu-item-group > .ant-menu-item-group-title {
+  padding: 0 16px;
+}
+
+.ant-menu-item-group > .ant-menu-item-group-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.NavBar__items .ant-menu-title-content {
+.ant-menu-item-group > .ant-menu-item-group-list .ant-menu-title-content {
   font-size: 20px;
   vertical-align: -webkit-baseline-middle;
   font-weight: 700;

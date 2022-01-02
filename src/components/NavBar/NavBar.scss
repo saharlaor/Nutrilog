@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
-  border-radius: 1rem;
+  border-radius: 3rem;
   & > * {
     height: 60px;
   }
@@ -14,11 +14,16 @@
   }
 }
 
-.NavBar__items {
-  display: flex;
-  & .ant-menu-title-content {
-    font-size: 20px;
-    vertical-align: -webkit-baseline-middle;
-    font-weight: 700;
+.ant-menu-item-group {
+  & > .ant-menu-item-group-title {
+    padding: 0 16px;
+  }
+  & > .ant-menu-item-group-list {
+    display: flex;
+    & .ant-menu-title-content {
+      font-size: 20px;
+      vertical-align: -webkit-baseline-middle;
+      font-weight: 700;
+    }
   }
 }
