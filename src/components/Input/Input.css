@@ -2,7 +2,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 24px;
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .Input label {
@@ -12,6 +13,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   height: 2em;
   padding: 0 0.5em;
   color: #eee;
@@ -31,13 +34,17 @@
 }
 
 .Input div.ant-select:not(.ant-select-customize-input) .ant-select-selector {
-  width: calc(28vw + 70px);
-  max-width: 420px;
+  width: calc(100vw - 200px);
+  max-width: 600px;
   font-size: inherit;
   border-radius: 0 0.5em 0.5em 0;
 }
 
 .Input div.ant-select:not(.ant-select-customize-input) .ant-select-selector input {
   height: 2em;
+}
+
+.Input div .ant-input-number-input {
+  height: 2rem;
 }
 /*# sourceMappingURL=Input.css.map */

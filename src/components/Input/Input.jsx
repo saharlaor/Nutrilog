@@ -30,9 +30,6 @@ function Input({
       component = (
         <AutoComplete
           dropdownMatchSelectWidth={250}
-          style={{
-            width: 300,
-          }}
           value={value}
           options={options}
           autoFocus={autoFocus}

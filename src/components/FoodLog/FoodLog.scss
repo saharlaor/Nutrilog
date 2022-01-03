@@ -19,4 +19,19 @@
 .nutrient-display {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  .nutrient-display__inputs {
+    display: flex;
+    flex-direction: column;
+    .Input {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .nutrient-display {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
 }

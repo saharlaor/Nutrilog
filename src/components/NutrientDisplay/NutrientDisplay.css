@@ -1,4 +1,19 @@
 .NutrientDisplay {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 10.5rem;
+  font-size: 1rem;
+  padding: 1em;
+  border: 1px solid #a7a49f;
+  border-radius: 2em;
+  background-color: #f3efed;
 }
-/*# sourceMappingURL=a.css.map */
+/*# sourceMappingURL=NutrientDisplay.css.map */

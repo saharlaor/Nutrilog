@@ -16,6 +16,7 @@ function NutrientDisplay({ title, nutrients }) {
   return (
     <div className="NutrientDisplay">
       <h3>{title}</h3>
+      <hr />
       {displayNutrients(nutrients)}
     </div>
   );

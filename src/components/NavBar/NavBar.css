@@ -10,7 +10,7 @@
 }
 
 .NavBar > * {
-  height: 60px;
+  height: 5rem;
 }
 
 .NavBar img {
@@ -18,11 +18,15 @@
 }
 
 .NavBar > li {
-  font-size: 18px;
+  font-size: 1.1rem;
+}
+
+.ant-menu-item-group {
+  overflow-x: auto;
 }
 
 .ant-menu-item-group > .ant-menu-item-group-title {
-  padding: 0 16px;
+  padding: 0 1rem;
 }
 
 .ant-menu-item-group > .ant-menu-item-group-list {
@@ -32,7 +36,7 @@
 }
 
 .ant-menu-item-group > .ant-menu-item-group-list .ant-menu-title-content {
-  font-size: 20px;
+  font-size: 1.2rem;
   vertical-align: -webkit-baseline-middle;
   font-weight: 700;
 }

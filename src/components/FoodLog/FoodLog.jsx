@@ -200,12 +200,6 @@ function FoodLog() {
           changeHandler={handleFoodChange}
           selectHandler={handleFoodSelect}
         />
-        <Input
-          title="amount (G)"
-          type="number"
-          value={amount}
-          changeHandler={handleAmountChange}
-        />
       </div>
       <div className="nutrient-display">
         <NutrientDisplay
@@ -213,7 +207,15 @@ function FoodLog() {
           nutrients={getDailyNutrients()}
         />
         <NutrientDisplay title={selectedFood.name} nutrients={nutrients} />
-        <button onClick={handleSubmitClick}>OK</button>
+        <div className="nutrient-display__inputs">
+          <Input
+            title="amount (G)"
+            type="number"
+            value={amount}
+            changeHandler={handleAmountChange}
+          />
+          <button onClick={handleSubmitClick}>OK</button>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,gBAAgB,CAAC;EACf,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,eAAe,EAAE,QAAQ;EACzB,MAAM,EAAE,OAAO;EACf,SAAS,EAAE,IAAI;EACf,OAAO,EAAE,GAAG;EACZ,MAAM,EAAE,iBAAiB;EACzB,aAAa,EAAE,GAAG;EAClB,gBAAgB,EAAE,OAAO;CAC1B",
+    "sources": [
+        "NutrientDisplay.scss"
+    ],
+    "names": [],
+    "file": "NutrientDisplay.css"
+}

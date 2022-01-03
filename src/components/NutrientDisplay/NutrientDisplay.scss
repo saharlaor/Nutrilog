@@ -1,3 +1,11 @@
 .NutrientDisplay {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 10.5rem;
+  font-size: 1rem;
+  padding: 1em;
+  border: 1px solid #a7a49f;
+  border-radius: 2em;
+  background-color: #f3efed;
 }
