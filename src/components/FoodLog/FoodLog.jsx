@@ -7,6 +7,7 @@ import foodApi from "../../api/foodApi";
 
 // CSS
 import "./FoodLog.css";
+import NutrientDisplay from "../NutrientDisplay/NutrientDisplay";
 
 const NUTRIENT_CODES = {
   203: "protein",
@@ -14,6 +15,10 @@ const NUTRIENT_CODES = {
   205: "carbs",
   208: "energy",
 };
+
+function getTimestamp() {
+  return new Date().toISOString().substring(0, 10).split("-").join("");
+}
 
 function FoodLog() {
   const [nutrients, setNutrients] = useState({
@@ -112,14 +117,8 @@ function FoodLog() {
 
   const handleSubmitClick = () => {
     // Create a timestamp by day
-    const timestamp = new Date()
-      .toISOString()
-      .substring(0, 10)
-      .split("-")
-      .join("");
-    // console.log(timeStamp);
+    const timestamp = getTimestamp();
     let todayHistory = JSON.parse(JSON.stringify(foodHistory));
-    console.log(todayHistory);
     todayHistory = {
       ...todayHistory,
       [timestamp]: todayHistory[timestamp]
@@ -152,15 +151,40 @@ function FoodLog() {
     }, {});
   };
 
-  const displayNutrients = () => {
-    return Object.entries(nutrients).map((nutrient) => {
-      return (
-        <div
-          key={
-            nutrient[0]
-          }>{`${nutrient[0]}: ${nutrient[1].amount} ${nutrient[1].units}`}</div>
-      );
-    });
+  const getDailyNutrients = () => {
+    const timestamp = getTimestamp();
+    const historyCopy = JSON.parse(JSON.stringify(foodHistory));
+    const todayHistory = historyCopy[timestamp] ? historyCopy[timestamp] : [];
+
+    // Make a single object with the day's nutrient intake
+    return todayHistory
+      ? todayHistory.reduce(
+          (accNutrients, item) => {
+            return Object.keys(accNutrients).reduce((obj, nutrient) => {
+              return {
+                ...obj,
+                [nutrient]: {
+                  amount:
+                    parseInt(accNutrients[nutrient].amount) +
+                    parseInt(item[nutrient].amount),
+                  units: accNutrients[nutrient].units,
+                },
+              };
+            }, {});
+          },
+          {
+            protein: { amount: 0, units: "G" },
+            fat: { amount: 0, units: "G" },
+            carbs: { amount: 0, units: "G" },
+            energy: { amount: 0, units: "KCAL" },
+          }
+        )
+      : {
+          protein: { amount: 0, units: "G" },
+          fat: { amount: 0, units: "G" },
+          carbs: { amount: 0, units: "G" },
+          energy: { amount: 0, units: "KCAL" },
+        };
   };
 
   return (
@@ -184,10 +208,13 @@ function FoodLog() {
         />
       </div>
       <div className="nutrient-display">
-        <h3>{selectedFood.name}</h3>
-        {displayNutrients()}
+        <NutrientDisplay
+          title="Daily Nutrients"
+          nutrients={getDailyNutrients()}
+        />
+        <NutrientDisplay title={selectedFood.name} nutrients={nutrients} />
+        <button onClick={handleSubmitClick}>OK</button>
       </div>
-      <button onClick={handleSubmitClick}>OK</button>
     </div>
   );
 }
