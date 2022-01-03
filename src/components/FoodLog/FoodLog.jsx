@@ -15,16 +15,6 @@ const NUTRIENT_CODES = {
   208: "energy",
 };
 
-function parseNutrients(data) {
-  return data.foodNutrients.reduce((accNutrients, nutrient) => {
-    accNutrients[NUTRIENT_CODES[nutrient.number]] = {
-      amount: nutrient.amount,
-      units: nutrient.unitName,
-    };
-    return accNutrients;
-  }, {});
-}
-
 function FoodLog() {
   const [nutrients, setNutrients] = useState({
     protein: { amount: 0, units: "G" },
@@ -32,7 +22,13 @@ function FoodLog() {
     carbs: { amount: 0, units: "G" },
     energy: { amount: 0, units: "KCAL" },
   });
-  const [selectedFood, setSelectedFood] = useState("");
+  const [selectedFood, setSelectedFood] = useState({
+    name: "",
+    protein: { amount: 0, units: "G" },
+    fat: { amount: 0, units: "G" },
+    carbs: { amount: 0, units: "G" },
+    energy: { amount: 0, units: "KCAL" },
+  });
   const [term, setTerm] = useState("");
   const [amount, setAmount] = useState(0);
   const [options, setOptions] = useState([]);
@@ -67,6 +63,20 @@ function FoodLog() {
     };
   }, [term]);
 
+  useEffect(() => {
+    // Deep copy protein, fat, carbs, energy, for recalculation of nutrients
+    const { protein, fat, carbs, energy } = JSON.parse(
+      JSON.stringify(selectedFood)
+    );
+
+    protein.amount = ((protein.amount * amount) / 100).toFixed(2);
+    fat.amount = ((fat.amount * amount) / 100).toFixed(2);
+    carbs.amount = ((carbs.amount * amount) / 100).toFixed(2);
+    energy.amount = ((energy.amount * amount) / 100).toFixed(2);
+
+    setNutrients({ protein, fat, carbs, energy });
+  }, [amount, selectedFood]);
+
   const handleFoodChange = (newTerm) => {
     setTerm(newTerm);
   };
@@ -84,10 +94,23 @@ function FoodLog() {
       },
     });
     console.log(`data`, data); // TODO: delete
-    setSelectedFood(data.description);
-    const nutrientsObj = parseNutrients(data);
+    setSelectedFood({
+      ...parseNutrients(data.foodNutrients),
+      name: data.description,
+    });
+    const nutrientsObj = parseNutrients(data.foodNutrients);
     console.log(`nutrientsObj`, nutrientsObj); // TODO: delete
     setNutrients(nutrientsObj);
+  };
+
+  const parseNutrients = (data) => {
+    return data.reduce((accNutrients, nutrient) => {
+      accNutrients[NUTRIENT_CODES[nutrient.number]] = {
+        amount: (nutrient.amount / 100) * amount,
+        units: nutrient.unitName,
+      };
+      return accNutrients;
+    }, {});
   };
 
   const displayNutrients = () => {
@@ -115,14 +138,14 @@ function FoodLog() {
           selectHandler={handleFoodSelect}
         />
         <Input
-          title="amount"
+          title="amount (G)"
           type="number"
           value={amount}
           changeHandler={handleAmountChange}
         />
       </div>
       <div className="nutrient-display">
-        <h3>{selectedFood}</h3>
+        <h3>{selectedFood.name}</h3>
         {displayNutrients()}
       </div>
     </div>
