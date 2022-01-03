@@ -32,6 +32,9 @@ function FoodLog() {
   const [term, setTerm] = useState("");
   const [amount, setAmount] = useState(0);
   const [options, setOptions] = useState([]);
+  const [foodHistory, setFoodHistory] = useState(
+    JSON.parse(localStorage.getItem("foodHistory")) || {}
+  );
 
   useEffect(() => {
     const timeoutToken = setTimeout(() => {
@@ -103,6 +106,28 @@ function FoodLog() {
     setNutrients(nutrientsObj);
   };
 
+  const handleSubmitClick = () => {
+    // Create a timestamp by day
+    const timestamp = new Date()
+      .toISOString()
+      .substring(0, 10)
+      .split("-")
+      .join("");
+    // console.log(timeStamp);
+    let todayHistory = JSON.parse(JSON.stringify(foodHistory));
+    console.log(todayHistory);
+    todayHistory = {
+      ...todayHistory,
+      [timestamp]: todayHistory[timestamp]
+        ? [
+            ...todayHistory[timestamp],
+            { ...nutrients, name: selectedFood.name },
+          ]
+        : [{ ...nutrients, name: selectedFood.name }],
+    };
+    setFoodHistory(todayHistory);
+  };
+
   const parseSelectedFood = (data) => {
     return data.reduce((accNutrients, nutrient) => {
       accNutrients[NUTRIENT_CODES[nutrient.number]] = {
@@ -158,6 +183,7 @@ function FoodLog() {
         <h3>{selectedFood.name}</h3>
         {displayNutrients()}
       </div>
+      <button onClick={handleSubmitClick}>OK</button>
     </div>
   );
 }
