@@ -95,12 +95,22 @@ function FoodLog() {
     });
     console.log(`data`, data); // TODO: delete
     setSelectedFood({
-      ...parseNutrients(data.foodNutrients),
+      ...parseSelectedFood(data.foodNutrients),
       name: data.description,
     });
     const nutrientsObj = parseNutrients(data.foodNutrients);
     console.log(`nutrientsObj`, nutrientsObj); // TODO: delete
     setNutrients(nutrientsObj);
+  };
+
+  const parseSelectedFood = (data) => {
+    return data.reduce((accNutrients, nutrient) => {
+      accNutrients[NUTRIENT_CODES[nutrient.number]] = {
+        amount: (nutrient.amount / 100) * 100,
+        units: nutrient.unitName,
+      };
+      return accNutrients;
+    }, {});
   };
 
   const parseNutrients = (data) => {
