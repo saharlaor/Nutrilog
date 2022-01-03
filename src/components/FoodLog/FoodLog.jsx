@@ -80,6 +80,10 @@ function FoodLog() {
     setNutrients({ protein, fat, carbs, energy });
   }, [amount, selectedFood]);
 
+  useEffect(() => {
+    localStorage.setItem("foodHistory", JSON.stringify(foodHistory));
+  }, [foodHistory]);
+
   const handleFoodChange = (newTerm) => {
     setTerm(newTerm);
   };
