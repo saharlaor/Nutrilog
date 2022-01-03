@@ -1,3 +1,42 @@
 .Overview {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 4rem;
+  .Overview__logo {
+    position: relative;
+    border-radius: 50%;
+    max-width: 250px;
+    width: 25vw;
+    & > img {
+      max-height: 250px;
+      max-width: 250px;
+      height: 25vw;
+      width: 25vw;
+      border-radius: 50%;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      max-height: 250px;
+      max-width: 250px;
+      height: 25vw;
+      width: 25vw;
+      border-radius: 50%;
+      box-shadow: 6px 3px 9px 5px rgba(208, 146, 255, 0.5),
+        3px 6px 9px 5px rgba(146, 208, 255, 0.5),
+        -6px 0px 9px 3px rgba(160, 255, 133, 0.5),
+        -6px -5px 9px 3px rgba(255, 228, 138, 0.5),
+        3px -6px 9px 3px rgba(255, 128, 128, 0.5);
+      z-index: 1000;
+      animation: spin 2s linear 2s infinite;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(360deg);
+  }
 }

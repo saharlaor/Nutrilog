@@ -1,4 +1,56 @@
 .Overview {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  padding: 4rem;
+}
+
+.Overview .Overview__logo {
+  position: relative;
+  border-radius: 50%;
+  max-width: 250px;
+  width: 25vw;
+}
+
+.Overview .Overview__logo > img {
+  max-height: 250px;
+  max-width: 250px;
+  height: 25vw;
+  width: 25vw;
+  border-radius: 50%;
+}
+
+.Overview .Overview__logo::before {
+  content: "";
+  position: absolute;
+  display: block;
+  max-height: 250px;
+  max-width: 250px;
+  height: 25vw;
+  width: 25vw;
+  border-radius: 50%;
+  -webkit-box-shadow: 6px 3px 9px 5px rgba(208, 146, 255, 0.5), 3px 6px 9px 5px rgba(146, 208, 255, 0.5), -6px 0px 9px 3px rgba(160, 255, 133, 0.5), -6px -5px 9px 3px rgba(255, 228, 138, 0.5), 3px -6px 9px 3px rgba(255, 128, 128, 0.5);
+          box-shadow: 6px 3px 9px 5px rgba(208, 146, 255, 0.5), 3px 6px 9px 5px rgba(146, 208, 255, 0.5), -6px 0px 9px 3px rgba(160, 255, 133, 0.5), -6px -5px 9px 3px rgba(255, 228, 138, 0.5), 3px -6px 9px 3px rgba(255, 128, 128, 0.5);
+  z-index: 1000;
+  -webkit-animation: spin 2s linear 2s infinite;
+          animation: spin 2s linear 2s infinite;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 /*# sourceMappingURL=Overview.css.map */
