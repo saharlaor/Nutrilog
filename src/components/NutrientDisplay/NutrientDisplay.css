@@ -10,10 +10,17 @@
       -ms-flex-pack: end;
           justify-content: flex-end;
   height: 10.5rem;
+  max-width: 15rem;
   font-size: 1rem;
   padding: 1em;
   border: 1px solid #a7a49f;
   border-radius: 2em;
   background-color: #f3efed;
+}
+
+.NutrientDisplay h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /*# sourceMappingURL=NutrientDisplay.css.map */
