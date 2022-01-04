@@ -3,4 +3,10 @@
   width: 40vw;
   max-width: 520px;
 }
+
+@media screen and (max-width: 720px) {
+  .Graph {
+    width: 80vw;
+  }
+}
 /*# sourceMappingURL=Graph.css.map */

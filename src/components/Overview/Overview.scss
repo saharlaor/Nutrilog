@@ -47,3 +47,9 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 720px) {
+  .Overview .graphs {
+    grid-template-columns: 1fr;
+  }
+}

@@ -66,4 +66,11 @@
             transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 720px) {
+  .Overview .graphs {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
 /*# sourceMappingURL=Overview.css.map */

@@ -29,9 +29,10 @@ function Graph({ data }) {
   // data: {labels: ["your x axis tags"],
   // datasets: [{label: "line name", data: ["your data points (Number)"], backgroundColor: ["colors of data points"], borderWidth: "line thickness"}]}
   const [chartData, setChartData] = useState(data);
+  console.log(`data`, data);
   return (
     <div className="Graph">
-      <Line data={chartData} options={{ responsive: true }} />
+      <Line data={data} options={{ responsive: true }} />
     </div>
   );
 }

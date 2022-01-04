@@ -33,24 +33,32 @@ function Overview() {
       .slice(0, 31);
     // Make an array of objects with everyday's nutrient intake
     return historyArr.reduce((days, day) => {
+      // console.log(`day`, day);
       const dayNutrients = day
         ? day[1].reduce((accNutrients, item) => {
+            // console.log(`item`, item);
+            console.log(`accNutrients`, accNutrients);
             return Object.keys(accNutrients).reduce((acc, nutrient) => {
+              // console.log(`acc`, acc);
+              // console.log(`nutrient`, nutrient);
+              // console.log(`item[nutrient]`, item[nutrient]);
+
               return {
-                ...accNutrients,
+                ...acc,
                 [nutrient]:
-                  acc +
-                  parseInt(accNutrients[nutrient].amount) +
+                  parseInt(accNutrients[nutrient]) +
                   parseInt(item[nutrient].amount),
               };
-            }, 0);
+            }, {});
           }, EMPTY_NUTRIENT_OBJECT)
         : EMPTY_NUTRIENT_OBJECT;
+      console.log(`dayNutrients`, dayNutrients);
       return { ...days, [day[0]]: dayNutrients };
     }, {});
   };
 
   const parseNutrients = (requestedNutrient) => {
+    console.log("dailyNutrients", dailyNutrients);
     return Object.values(dailyNutrients).reduce(
       (acc, nutrients) => [...acc, nutrients[requestedNutrient]],
       []
@@ -59,7 +67,7 @@ function Overview() {
 
   const generateGraphData = (nutrientArr, color, nutrientName) => {
     console.log(nutrientArr, color, nutrientName);
-    const wow = {
+    return {
       labels: Object.keys(nutrientArr),
       datasets: [
         {
@@ -70,8 +78,6 @@ function Overview() {
         },
       ],
     };
-    console.log(`wow`, wow);
-    return wow;
   };
 
   return (
