@@ -2,9 +2,14 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4rem;
   width: 100%;
   padding: 4rem;
 }
@@ -38,6 +43,14 @@
   z-index: 1000;
   -webkit-animation: spin 2s linear 2s infinite;
           animation: spin 2s linear 2s infinite;
+}
+
+.Overview .graphs {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  justify-items: center;
 }
 
 @-webkit-keyframes spin {
