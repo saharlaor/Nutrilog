@@ -21,6 +21,8 @@
   }
   & > .ant-menu-item-group-list {
     display: flex;
+    height: 100%;
+    align-items: center;
     & .ant-menu-title-content {
       font-size: 1.2rem;
       vertical-align: -webkit-baseline-middle;
