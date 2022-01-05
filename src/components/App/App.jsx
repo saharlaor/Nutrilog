@@ -20,6 +20,10 @@ function App() {
   );
 
   useEffect(() => {
+    document.title = "Nutrilog";
+  });
+
+  useEffect(() => {
     const signIn = async () => {
       if (user) return;
 
