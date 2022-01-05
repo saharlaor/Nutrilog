@@ -20,33 +20,29 @@ function App() {
   );
 
   useEffect(() => {
-    if (!user) {
-      signIn();
-      return <div className="App">Sign in</div>;
-    }
-  }, []);
+    const signIn = async () => {
+      if (user) return;
+
+      const provider = new GoogleAuthProvider();
+      try {
+        const {
+          user: { displayName, uid },
+        } = await signInWithPopup(authentication, provider);
+        setUser({ name: displayName, uid });
+      } catch (err) {
+        console.dir(err);
+      }
+    };
+
+    signIn();
+    return <div className="App">Sign in</div>;
+  }, [user]);
 
   useEffect(() => {
     if (user) {
       localStorage.setItem("user", JSON.stringify(user));
     }
   }, [user]);
-
-  const signIn = async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-      const {
-        user: { displayName, uid },
-      } = await signInWithPopup(authentication, provider);
-      setUser({ name: displayName, uid });
-      // localStorage.setItem("user", JSON.stringify({ name: displayName, uid }));
-    } catch (err) {
-      console.dir(err);
-      // setTimeout(() => {
-      //   signIn();
-      // }, 5000);
-    }
-  };
   return (
     <userContext.Provider value={user}>
       <div className="App">

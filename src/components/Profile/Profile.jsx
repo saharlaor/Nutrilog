@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Detail from "./Detail/Detail";
 import "./Profile.css";
 
@@ -12,16 +12,16 @@ function Profile() {
     localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
 
-  const handleChange = (key, val) => {
+  const handleChange = useCallback((key, val) => {
     console.log(`val`, val);
     console.log(`key`, key);
-    setUser({
-      ...user,
-      [key]: val,
+    setUser((prevUser) => {
+      return {
+        ...prevUser,
+        [key]: val,
+      };
     });
-  };
-
-  const handleGenderSelect = (value) => {};
+  }, []);
 
   return (
     <div className="Profile">

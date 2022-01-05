@@ -7,21 +7,14 @@ import Input from "../../Input/Input";
 // CSS
 import "./Detail.css";
 
-function Detail({
-  title,
-  type,
-  options,
-  currDetail,
-  changeHandler,
-  selectHandler,
-}) {
+function Detail({ title, type, options, currDetail, changeHandler }) {
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState(currDetail);
 
   useEffect(() => {
     console.log(`value`, value);
     value && changeHandler(title.toLowerCase(), value);
-  }, [value]);
+  }, [value, title, changeHandler]);
 
   const handleInputChange = (newVal) => {
     console.log(`newVal`, newVal);
