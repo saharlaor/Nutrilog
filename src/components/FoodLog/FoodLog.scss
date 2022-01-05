@@ -29,9 +29,22 @@
   }
 }
 
+.FoodLog__graphs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  padding-top: 2rem;
+}
+
 @media screen and (max-width: 720px) {
   .nutrient-display {
     flex-direction: column-reverse;
     gap: 1rem;
   }
+  .FoodLog__graphs {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 720px) {
 }

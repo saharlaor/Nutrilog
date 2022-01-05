@@ -47,6 +47,15 @@
   font-size: 1.2rem;
 }
 
+.FoodLog__graphs {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  padding-top: 2rem;
+}
+
 @media screen and (max-width: 720px) {
   .nutrient-display {
     -webkit-box-orient: vertical;
@@ -54,6 +63,10 @@
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
     gap: 1rem;
+  }
+  .FoodLog__graphs {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
   }
 }
 /*# sourceMappingURL=FoodLog.css.map */

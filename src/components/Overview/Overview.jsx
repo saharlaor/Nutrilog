@@ -92,15 +92,19 @@ function Overview() {
             "green",
             "protein"
           )}
+          type="line"
         />
         <Graph
           data={generateGraphData(parseNutrients("fat"), "yellow", "fat")}
+          type="line"
         />
         <Graph
           data={generateGraphData(parseNutrients("carbs"), "red", "carbs")}
+          type="line"
         />
         <Graph
           data={generateGraphData(parseNutrients("energy"), "blue", "energy")}
+          type="line"
         />
       </div>
     </div>

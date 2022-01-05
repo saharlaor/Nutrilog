@@ -8,6 +8,8 @@ import foodApi from "../../api/foodApi";
 // CSS
 import "./FoodLog.css";
 import NutrientDisplay from "../NutrientDisplay/NutrientDisplay";
+import Graph from "../Graph/Graph";
+// import Graph from "../Graph/Graph";
 
 const NUTRIENT_CODES = {
   203: "protein",
@@ -188,6 +190,44 @@ function FoodLog() {
         };
   };
 
+  const getDailyNutrientsGraphData = (nutrient, color) => {
+    const dailyNutrients = getDailyNutrients();
+    const data = {
+      labels: ["Consumed", "Recommended"],
+      datasets: [
+        {
+          data: [
+            dailyNutrients[nutrient].amount,
+            calculateNutrientRecommendation(nutrient),
+          ],
+          backgroundColor: [color, "purple"],
+          borderWidth: 4,
+        },
+      ],
+    };
+    return data;
+    // data: {labels: ["your x axis tags"],
+    // datasets: [{label: "line name", data: ["your data points (Number)"], backgroundColor: ["colors of data points"], borderWidth: "line thickness"}]}
+  };
+
+  const calculateNutrientRecommendation = (nutrient) => {
+    const { weight, gender } = JSON.parse(localStorage.getItem("user"));
+    switch (nutrient) {
+      case "carbs":
+        return weight * 4;
+      case "protein":
+        return weight;
+      case "fat":
+        return weight * 0.5;
+      case "energy":
+        return weight * (gender === "male" ? 35 : 30);
+
+      default:
+        console.log(`Unexpected nutrient ${nutrient}`);
+        break;
+    }
+  };
+
   return (
     <div className="FoodLog">
       <h2>Food Log</h2>
@@ -217,6 +257,15 @@ function FoodLog() {
           />
           <button onClick={handleSubmitClick}>OK</button>
         </div>
+      </div>
+      <div className="FoodLog__graphs">
+        <Graph
+          data={getDailyNutrientsGraphData("protein", "green")}
+          type="bar"
+        />
+        <Graph data={getDailyNutrientsGraphData("fat", "yellow")} type="bar" />
+        <Graph data={getDailyNutrientsGraphData("carbs", "red")} type="bar" />
+        <Graph data={getDailyNutrientsGraphData("energy", "blue")} type="bar" />
       </div>
     </div>
   );
