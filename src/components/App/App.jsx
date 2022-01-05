@@ -1,5 +1,5 @@
 // External imports
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
@@ -18,25 +18,35 @@ function App() {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
   );
+
+  useEffect(() => {
+    if (!user) {
+      signIn();
+      return <div className="App">Sign in</div>;
+    }
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    }
+  }, [user]);
+
   const signIn = async () => {
     const provider = new GoogleAuthProvider();
     try {
       const {
         user: { displayName, uid },
       } = await signInWithPopup(authentication, provider);
-      setUser({ displayName, uid });
-      localStorage.setItem("user", JSON.stringify({ displayName, uid }));
+      setUser({ name: displayName, uid });
+      // localStorage.setItem("user", JSON.stringify({ name: displayName, uid }));
     } catch (err) {
       console.dir(err);
-      setTimeout(() => {
-        signIn();
-      }, 5000);
+      // setTimeout(() => {
+      //   signIn();
+      // }, 5000);
     }
   };
-  if (!user) {
-    signIn();
-    return <div className="App">Sign in</div>;
-  }
   return (
     <userContext.Provider value={user}>
       <div className="App">

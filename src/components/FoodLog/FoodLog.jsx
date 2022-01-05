@@ -113,6 +113,7 @@ function FoodLog() {
     const nutrientsObj = parseNutrients(data.foodNutrients);
     console.log(`nutrientsObj`, nutrientsObj); // TODO: delete
     setNutrients(nutrientsObj);
+    setTerm("");
   };
 
   const handleSubmitClick = () => {

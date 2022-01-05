@@ -13,6 +13,7 @@ function Input({
   autoFocus,
   changeHandler,
   selectHandler,
+  enterHandler,
 }) {
   const handleChange = (newVal) => {
     console.log(newVal);
@@ -21,7 +22,12 @@ function Input({
 
   const handleSelect = (value) => {
     selectHandler(value);
-    changeHandler("");
+    // changeHandler("");
+    enterHandler && enterHandler();
+  };
+
+  const handleEnter = () => {
+    enterHandler();
   };
 
   let component;
@@ -35,6 +41,7 @@ function Input({
           autoFocus={autoFocus}
           onChange={handleChange}
           onSelect={handleSelect}
+          onPressEnter={handleEnter}
         />
       );
       break;
@@ -45,6 +52,7 @@ function Input({
           value={value}
           onChange={handleChange}
           autoFocus={autoFocus}
+          onPressEnter={handleEnter}
         />
       );
       break;
@@ -56,6 +64,7 @@ function Input({
           value={value}
           onChange={handleChange}
           autoFocus={autoFocus}
+          onPressEnter={handleEnter}
         />
       );
       break;
