@@ -11,7 +11,17 @@
   width: 100%;
 }
 
+.Detail span:hover {
+  cursor: pointer;
+}
+
 .Detail .Input {
   margin: 0;
+}
+
+.Detail .Input .ant-input-number,
+.Detail .Input .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  width: 10rem;
+  background-color: #f3efed;
 }
 /*# sourceMappingURL=Detail.css.map */
