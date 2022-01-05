@@ -8,13 +8,10 @@ function Profile() {
   );
 
   useEffect(() => {
-    console.log(`user`, user);
     localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
 
   const handleChange = useCallback((key, val) => {
-    console.log(`val`, val);
-    console.log(`key`, key);
     setUser((prevUser) => {
       return {
         ...prevUser,

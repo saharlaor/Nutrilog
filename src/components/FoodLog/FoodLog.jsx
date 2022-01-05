@@ -46,7 +46,6 @@ function FoodLog() {
   useEffect(() => {
     const timeoutToken = setTimeout(() => {
       const getOptions = async () => {
-        console.log(`term`, term); // TODO: delete
         try {
           const {
             data: { foods },
@@ -100,20 +99,17 @@ function FoodLog() {
   };
 
   const handleFoodSelect = async (value) => {
-    console.log("Handling food selection");
     const { data } = await foodApi.get(`food/${value}`, {
       params: {
         format: "abridged",
         nutrients: Object.keys(NUTRIENT_CODES).join(","),
       },
     });
-    console.log(`data`, data); // TODO: delete
     setSelectedFood({
       ...parseSelectedFood(data.foodNutrients),
       name: data.description,
     });
     const nutrientsObj = parseNutrients(data.foodNutrients);
-    console.log(`nutrientsObj`, nutrientsObj); // TODO: delete
     setNutrients(nutrientsObj);
     setTerm("");
   };

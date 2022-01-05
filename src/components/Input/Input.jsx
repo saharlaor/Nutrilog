@@ -16,7 +16,6 @@ function Input({
   enterHandler,
 }) {
   const handleChange = (newVal) => {
-    console.log(newVal);
     changeHandler(newVal);
   };
 

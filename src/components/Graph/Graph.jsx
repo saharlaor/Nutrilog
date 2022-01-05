@@ -28,7 +28,6 @@ ChartJS.register(
 );
 
 function Graph({ data, type }) {
-  console.log(`data`, data);
   return (
     <div className="Graph">
       {type === "line" ? (

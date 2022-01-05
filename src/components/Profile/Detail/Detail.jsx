@@ -12,12 +12,10 @@ function Detail({ title, type, options, currDetail, changeHandler }) {
   const [value, setValue] = useState(currDetail);
 
   useEffect(() => {
-    console.log(`value`, value);
     value && changeHandler(title.toLowerCase(), value);
   }, [value, title, changeHandler]);
 
   const handleInputChange = (newVal) => {
-    console.log(`newVal`, newVal);
     setValue(newVal);
   };
 
